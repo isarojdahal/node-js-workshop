@@ -8,7 +8,7 @@ Pre-requists before learning Nodejs:
 
 -  One must be famailer with JavaScript Programming Language.
  ( JavaScript Crash Course : [Video 1](https://youtu.be/jtdlCWiXZGE)  , [Video 2](https://youtu.be/3Yc40RINnG0). ) <br/>
-- One must Understand the following Concepts of JavaScript : 
+- One must Understand the following Concepts of JavaScript :<br/>
 	 => Template Literals (https://youtu.be/bPZJ5J1MaLo)<br/>
 	 => Arrow Functions (https://youtu.be/7H0erxjw3D0)<br/>
 	 => Destructuring Assignment & Spread Opearators (https://youtu.be/7RZ2NFLQLP0)<br/>
