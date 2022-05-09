@@ -1,5 +1,5 @@
-# Node js Course Syllabus
-
+# Node js Course Syllabus.      
+([ view updated syllabus](https://docs.google.com/document/d/1X0YPW4yDofnV_ZMB8hspu_f9SrTGa44QGfc_lBRBSEA/edit?usp=sharing) )
   
   
 **Day 1**
