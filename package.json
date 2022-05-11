@@ -1,0 +1,12 @@
+{
+  "name": "node-js-workshop",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/isarojdahal/node-js-workshop",
+  "author": "Saroj Dahal <isarojdahal@gmail.com>",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "node ."
+  }
+}
