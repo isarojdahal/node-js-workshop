@@ -5,9 +5,9 @@
 ![Nodejs ](https://miro.medium.com/max/1400/1*cqQsY4mgoBbzWgG_XCYSjg.png)
 
 <br/>
-Node js Syllabus : [Click here](https://bit.ly/ek_node_js_syllabus)
-
-Pre-requists before learning Nodejs:
+### Node js Syllabus : [Click here](https://bit.ly/ek_node_js_syllabus)
+<br/><br/>
+### Pre-requists before learning Nodejs:
 
 - One must be familier with JavaScript Programming Language.
   ( JavaScript Crash Course : [Video 1](https://youtu.be/jtdlCWiXZGE) , [Video 2](https://youtu.be/3Yc40RINnG0). ) <br/>
