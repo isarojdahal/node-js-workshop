@@ -8,12 +8,13 @@ router.post("/add", async (req, res) => {
   const { username, location } = req.body;
 
   try {
-    const [rows, fields] = await connection.query(
+    const data = await connection.query(
       `INSERT INTO users(username,location) VALUES(?,?)`,
       [username, location]
     );
 
-    res.status(200).json(rows);
+    console.log(data);
+    res.status(200).json(data);
   } catch (err) {
     console.log(err);
   }
@@ -28,11 +29,10 @@ router.get("/:id", (req, res) => {
       [id],
       (err, results, fields) => {
         console.log(results);
-        res.status(200).json(...results);
+        res.json(...results);
       }
     );
-  } else
-    res.status(200).json({ success: false, message: "User ID NOt provided" });
+  } else res.json({ success: false, message: "User ID NOt provided" });
 });
 
 //update the users
@@ -49,16 +49,12 @@ router.put("/update/:id", (req, res) => {
       [username, location, id],
       (err, results, fields) => {
         console.log(results);
-        if (results.affectedRows === 1) {
-          res.status(200).json({ success: true, message: "User Updated" });
-        } else
-          res
-            .status(200)
-            .json({ success: false, message: "Unable to update User" });
+        if (results.affectedRows) {
+          res.json({ success: true, message: "User Updated" });
+        } else res.json({ success: false, message: "Unable to update User" });
       }
     );
-  } else
-    res.status(200).json({ success: false, message: "User ID Not provided" });
+  } else res.json({ success: false, message: "User ID Not provided" });
 });
 
 //delete.
@@ -72,7 +68,7 @@ router.delete("/delete/:id", (req, res) => {
       `DELETE FROM users WHERE id=?`,
       [id],
       (err, results, fields) => {
-        if (results.affectedRows === 1) {
+        if (results.affectedRows) {
           res
             .status(200)
             .json({ success: true, message: "user deleted successfully" });
