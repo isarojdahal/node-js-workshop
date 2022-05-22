@@ -1,0 +1,19 @@
+input {
+  height: 30px;
+  width: 300px;
+  margin-bottom: 15px;
+  color: black;
+}
+
+input[type="submit"] {
+  background-color: green;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+textarea {
+  width: 300px;
+  color: black;
+  margin-bottom: 15px;
+}
