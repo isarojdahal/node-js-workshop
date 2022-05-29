@@ -1,0 +1,42 @@
+{
+    "name": "@types/mysql",
+    "version": "2.15.21",
+    "description": "TypeScript definitions for mysql",
+    "homepage": "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/mysql",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": " William Johnston",
+            "url": "https://github.com/wjohnsto",
+            "githubUsername": "wjohnsto"
+        },
+        {
+            "name": "Krittanan Pingclasai",
+            "url": "https://github.com/kpping",
+            "githubUsername": "kpping"
+        },
+        {
+            "name": "James Munro",
+            "url": "https://github.com/jdmunro",
+            "githubUsername": "jdmunro"
+        },
+        {
+            "name": "Sanders DeNardi",
+            "url": "https://github.com/sedenardi",
+            "githubUsername": "sedenardi"
+        }
+    ],
+    "main": "",
+    "types": "index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+        "directory": "types/mysql"
+    },
+    "scripts": {},
+    "dependencies": {
+        "@types/node": "*"
+    },
+    "typesPublisherContentHash": "c933cddb877a9aa6ebbeaa1d627787706a706a9ed44070ca8c9cfaf58df4577f",
+    "typeScriptVersion": "3.8"
+}
