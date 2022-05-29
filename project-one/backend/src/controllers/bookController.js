@@ -1,14 +1,23 @@
 import bookModel from "../models/bookModel.js";
 import { Op } from "sequelize";
+import textConstants from "../constants/textConstants.js";
+import urlConstants from "../constants/urlConstants.js";
 
 export default class BookController {
   async addBook(req, res, imageName) {
-    const data = await bookModel.create({ ...req.body, image: imageName });
-    console.log(data);
-    if (data) {
-      res.json(data);
-    } else
-      res.json({ success: false, message: "Error during Adding the book." });
+    try {
+      const data = await bookModel.create({ ...req.body, image: imageName });
+      console.log(data);
+      if (data) {
+        res.json(data);
+      } else
+        res.json({ success: false, message: "Error during Adding the book." });
+    } catch (err) {
+      return res.json({
+        success: false,
+        message: "Error whilte Quering in Database",
+      });
+    }
   }
 
   //get book by their id
@@ -18,7 +27,8 @@ export default class BookController {
     if (id) {
       const data = await bookModel.findByPk(id);
       data ? res.json(data) : res.json([]);
-    } else res.json({ success: false, message: "Book ID NOt provided" });
+    } else
+      res.json({ success: false, message: textConstants.BOOK_ID_NOT_PROVIDED });
   }
 
   //
@@ -37,7 +47,8 @@ export default class BookController {
       } else {
         res.json({ success: false, message: "Couldn't update book" });
       }
-    } else res.json({ success: false, message: "Book ID NOt provided" });
+    } else
+      res.json({ success: false, message: textConstants.BOOK_ID_NOT_PROVIDED });
   }
 
   //
@@ -57,7 +68,8 @@ export default class BookController {
       } else {
         res.json({ success: false, message: "Couldn't delete book" });
       }
-    } else res.json({ success: false, message: "Book ID NOt provided" });
+    } else
+      res.json({ success: false, message: textConstants.BOOK_ID_NOT_PROVIDED });
   }
 
   async searchBook(req, res) {
@@ -75,9 +87,14 @@ export default class BookController {
             },
           },
         },
+        raw: true,
       });
 
       console.log(data);
+      for (let d of data) {
+        d.image = urlConstants.IMG_PATH_URL + d.image;
+        console.log(d.image);
+      }
       res.json(data);
     } else res.json({ success: false, message: "Empty Query Search string." });
   }
@@ -85,16 +102,20 @@ export default class BookController {
   async getBooks(req, res) {
     let { limit } = req.query;
     if (!limit) limit = 20;
-    const data = await bookModel.findAll({
-      limit,
-    });
-    console.log(data);
-    for (let d of data) {
-      d.dataValues.image =
-        "http://localhost:8000/uploads/" + d.dataValues.image;
-      console.log(d.dataValues.image);
-    }
+    try {
+      const data = await bookModel.findAll({
+        limit: parseInt(limit),
+        raw: true,
+      });
+      console.log(data);
+      for (let d of data) {
+        d.image = urlConstants.IMG_PATH_URL + d.image;
+        console.log(d.image);
+      }
 
-    res.json(data);
+      res.json(data);
+    } catch (err) {
+      res.json({ success: false, message: err });
+    }
   }
 }
